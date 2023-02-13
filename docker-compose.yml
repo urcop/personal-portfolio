@@ -1,0 +1,54 @@
+version: '3.9'
+
+
+services:
+  db:
+    container_name: "${PROJECT_NAME}_DB"
+    image: postgres:14-alpine
+    env_file:
+      - ".env"
+    ports:
+      - '${DB_PORT}:5432'
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - ./data/db:/var/lib/postgresql/data/
+    restart: unless-stopped
+
+  frontend:
+    container_name: "${PROJECT_NAME}_FRONT"
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '${FRONTEND_PORT}:3000'
+    volumes:
+      - ./frontend:/app/frontend
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  backend:
+    container_name: "${PROJECT_NAME}_BACK"
+    env_file:
+      - ".env"
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_USER=${DB_USER}
+      - DB_NAME=${DB_NAME}
+      - DB_ENGINE=${DB_ENGINE}
+    ports:
+      - '${BACKEND_PORT}:8000'
+    volumes:
+      - ./backend:/app/backend
+    depends_on:
+      - db
+    restart: unless-stopped

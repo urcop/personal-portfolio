@@ -1,0 +1,79 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 830px;
+  width: 1245px;
+  margin: auto;
+}
+
+.about {
+  max-width: 440px;
+  height: 440px;
+  transform: rotate(-90deg);
+  font-size: 110px;
+  color: #E0CCFF;
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  line-height: 109px;
+}
+
+.text {
+  font-family: "Jost", sans-serif;
+  font-size: 25px;
+  max-width: 490px;
+  margin-left: -25%;
+  line-height: 40px;
+  font-weight: 400;
+}
+
+.card {
+  width: 530px;
+  height: 700px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 55px 80px 55px 80px;
+  align-items: flex-start;
+}
+.card .outline {
+  border-radius: 50%;
+  border: 1px solid #000000;
+  width: 210px;
+  height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  align-self: center;
+}
+.card .photo {
+  width: 185px;
+  height: 185px;
+  display: block;
+  border-radius: 50%;
+}
+.card .name {
+  font-family: "Roboto", sans-serif;
+  display: block;
+  font-size: 25px;
+  margin-bottom: 35px;
+}
+.card .name span {
+  font-size: 30px;
+  font-weight: 500;
+}
+.card .geo {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+.card .geo .title {
+  font-size: 25px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=main.module.css.map */

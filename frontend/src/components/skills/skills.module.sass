@@ -1,0 +1,41 @@
+.skills
+    width: 370px
+    height: 175px
+    border: 1px solid #000000
+    border-radius: 10px
+    display: flex
+    padding: 18px
+    align-items: flex-start
+    flex-direction: column
+
+    & .skill
+        display: flex
+        align-items: center
+        justify-content: space-between
+        width: 100%
+        margin-bottom: 10px
+
+    & .name
+        font-size: 22px
+        font-family: 'Jost', sans-serif
+        position: relative
+        &:after
+            content: " "
+            position: absolute
+            background-color: #000
+            height: 1px
+            width: 165px
+            top: 30px
+            left: 0
+
+    & .points
+        display: flex
+        align-items: flex-end
+        width: 127px
+        & .point
+            width: 17px
+            height: 17px
+            border-radius: 5px
+            margin-left: 9px
+            &:first-child
+                margin-left: 0
